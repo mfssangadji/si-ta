@@ -1,0 +1,67 @@
+
+<?php $__env->startSection('title', 'Ubah Mahasiswa'); ?>
+<?php $__env->startSection('content'); ?>
+	    <div class="x_panel">
+			<div class="x_title">
+				<h2>Form Ubah <small><i>Mahasiswa</i></small></h2>
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
+				<br />
+				<form id="demo-form2" method="post" action="<?php echo e(route('mahasiswa').'/'.$mahasiswa->id); ?>" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
+          			<?php echo method_field('PATCH'); ?>
+					<?php echo csrf_field(); ?>
+
+					<div class="item form-group">
+						<div class="col-md-12 col-sm-12 ">
+							<input type="text" id="npm" name="npm" placeholder="NPM" value="<?php echo e($mahasiswa->npm); ?>" required="required" class="form-control ">
+						</div>
+					</div>
+
+					<div class="item form-group">
+						<div class="col-md-12 col-sm-12 ">
+							<input type="password" id="password" placeholder="Password (kosongkan jika tidak diganti)" name="password" class="form-control ">
+						</div>
+					</div>
+					
+					<div class="item form-group">
+						<div class="col-md-12 col-sm-12 ">
+							<input type="text" id="nama_lengkap" name="nama_lengkap" placeholder="Nama Lengkap" value="<?php echo e($mahasiswa->nama_lengkap); ?>" required="required" class="form-control ">
+						</div>
+					</div>
+
+					<div class="item form-group">
+						<div class="col-md-12 col-sm-12 ">
+							<input type="text" id="no_telp" placeholder="No. Telp" value="<?php echo e($mahasiswa->no_telp); ?>" name="no_telp" required="required" class="form-control ">
+						</div>
+					</div>
+
+					<div class="item form-group">
+						<div class="col-md-12 col-sm-12 ">
+							<input type="file" id="foto" name="foto">
+						</div>
+					</div>
+
+					<div class="ln_solid"></div>
+					<div class="item form-group">
+						<div class="col-md-12 col-sm-12 offset-md-12">
+							<button type="submit" class="btn btn-success btn-sm">Proses</button>
+							<button class="btn btn-primary btn-sm" onclick="self.history.back()" type="reset">Batal</button>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('scripts'); ?>
+<script>
+  $(function () {
+    $('.select2').select2({
+          theme: "classic",
+          maximumSelectionLength: 1,
+    })
+  })
+</script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('webpanel.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\scripty\si-ta\resources\views/webpanel/mahasiswa/edit.blade.php ENDPATH**/ ?>
